@@ -384,7 +384,7 @@ export default function App() {
             ))}
             <div style={{marginTop:14,padding:"12px 14px",background:"#1a2030",border:`1px solid ${COLORS.bilstm}25`,borderRadius:6,fontSize:11,color:COLORS.muted,lineHeight:1.7}}>
               <span style={{color:COLORS.bilstm}}>Agreement strategy: </span>
-              Predictions are grouped by temporal clustering (±15 s window). Confidence reflects model consensus. 3/3 → auto-accepted; 2/3 → flagged for review; 1/3 → hidden by default.
+              Predictions are grouped by temporal clustering (±10 s window). Confidence reflects model consensus. 3/3 → auto-accepted; 2/3 → flagged for review; 1/3 → hidden by default.
             </div>
           </div>
         )}
