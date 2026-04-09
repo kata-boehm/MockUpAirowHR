@@ -55,10 +55,13 @@ function getClusterWindow(numBoundaries) {
 }
 
 function getBestModel(sport, numIntervals) {
-  if (sport === "CYCLING") return "bilstm";
-  if (numIntervals <= 10) return "xgboost";
-  if (numIntervals <= 20) return "ffnn";
-  return "bilstm";
+  // Complexity: low ≤10 intervals, medium ≤20, high >20
+  if (sport === "CYCLING") {
+    // BiLSTM for low/medium; FFNN for high complexity
+    return numIntervals > 20 ? "ffnn" : "bilstm";
+  }
+  // Rowing: XGBoost for low complexity; FFNN for medium/high
+  return numIntervals <= 10 ? "xgboost" : "ffnn";
 }
 
 function buildClusters(MODEL_PREDS, sport, numIntervals, PRED_PROBA) {
