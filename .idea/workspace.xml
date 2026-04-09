@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4806a8a7-7235-45ba-87aa-4f56ec5a6b48" name="Changes" comment="added some features">
+    <list default="true" id="4806a8a7-7235-45ba-87aa-4f56ec5a6b48" name="Changes" comment="updated interface">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/APP.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/APP.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,13 +83,22 @@
       <option name="project" value="LOCAL" />
       <updated>1775577687365</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="updated interface">
+      <option name="closed" value="true" />
+      <created>1775721820258</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1775721820258</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added repo base" />
     <MESSAGE value="added deploy.yml" />
     <MESSAGE value="added some features" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some features" />
+    <MESSAGE value="updated interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated interface" />
   </component>
 </project>

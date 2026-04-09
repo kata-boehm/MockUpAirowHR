@@ -85,15 +85,15 @@ function buildClusters(MODEL_PREDS, sport, numIntervals, PRED_PROBA) {
   const all = Array.from(new Set(Object.values(MODEL_PREDS).flat())).sort((a,b)=>a-b);
   const clusters = [];
   all.forEach(t => {
-    const ex = clusters.find(c => Math.abs(c.center - t) <= W);
+    const ex = clusters.find(c => Math.abs(c.seed - t) <= W);
     if (ex) { ex.members.push(t); ex.center = Math.round(ex.members.reduce((s,v)=>s+v,0)/ex.members.length); }
-    else clusters.push({ center: t, members: [t] });
+    else clusters.push({ seed: t, center: t, members: [t] });
   });
 
   const classified = clusters.map(c => {
     const contributing = {};
     Object.entries(MODEL_PREDS).forEach(([m, preds]) => {
-      if (preds.some(p => Math.abs(p - c.center) <= W)) contributing[m] = true;
+      if (preds.some(p => Math.abs(p - c.seed) <= W)) contributing[m] = true;
     });
     const count = Object.keys(contributing).length;
     return { ...c, contributing, count, confidence: count===3?"high":count===2?"medium":null };
@@ -124,7 +124,7 @@ function buildClusters(MODEL_PREDS, sport, numIntervals, PRED_PROBA) {
   const fallbackNeeded = Math.max(0, numTotal - main.length);
   const fallback = bestPreds
     .map((t, i) => ({ t, p: bestProba[i] ?? 0 }))
-    .filter(({ t }) => !main.some(c => Math.abs(c.center - t) <= W))
+    .filter(({ t }) => !main.some(c => Math.abs(c.seed - t) <= W))
     .sort((a, b) => b.p - a.p)
     .slice(0, fallbackNeeded)
     .map(({ t }) => ({ center: t, members: [t], contributing: { [bestModel]: true }, count: 1, confidence: "fallback", bestModel }));
